@@ -1,0 +1,533 @@
+<head>
+    <title>GreenTRX - Mining TRX || 10% daily</title>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- recaptcha -->
+    <script src="js/mainscript.js"></script>
+    <script src="js/main.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+    <script src="js/rangeslider.min.js"></script>
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest.html">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#1eba36">
+    <meta name="msapplication-TileColor" content="#474747">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/rangeslider.css">
+</head>
+
+
+
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/modals.css">
+
+<div class="main__overflow">
+    <header class="header__section">
+        <div class="header__conteiner">
+            <div class="logotype__conteiner">
+                <div class="header__mobileButton"></div>
+                <a href="#" class="logo"><img src="images/logotype.png" alt="GreenTRX" /></a>
+            </div>
+
+
+            <div class="header__user-nav" style="    font-size: 27px;
+												 color: #dcbb36;
+    margin-top: 17px;
+    margin-bottom: -13px;
+    font-weight: 600;">
+                <input type="hidden" id="countfull" value="0.3241415">
+                <span id="count" style="margin-right: 15px;color: #26ae60;">0.0000000</span> TRX
+            </div>
+
+
+        </div>
+    </header>
+
+
+    <div class="main__screen-section">
+
+        <div class="main__screen-conteiner">
+            <img src="images/ellipseContur.png" alt="" class="circleImg" />
+            <div class="darkLayer"></div>
+
+            <div class="msc__left-column">
+                <div class="msc__conteiner" data-aos="animation">
+                    <h1>Cloud <strong>mining</strong><br> platform</h1>
+                    <p>GreenTRX is a high-quality solution for cloud mining of Tron. Well established trading mechanisms
+                        and experience in hardware coin mining makes us a reliable partner.</p>
+                    <div class="msc__bottom-info">
+
+                        <h2>Register now and <strong>GET 100 TRX FOR FREE!</strong></h2>
+                        <br>
+                        <h2>Start earning with us <strong>15% Daily</strong></h2>
+                        <div class="" style="margin-top: 20px;">
+                            <form style="position: relative;
+    display: inline-flex;">
+                                <input type="text" id="wallet" value="" style="    width: 350px;background: linear-gradient(117.54deg, rgba(255, 255, 255, 0.5) -19.85%, rgba(235, 235, 235, 0.367354) 4.2%, rgba(224, 224, 224, 0.287504) 13.88%, rgba(212, 212, 212, 0.21131) 27.98%, rgba(207, 207, 207, 0.175584) 37.8%, rgba(202, 202, 202, 0.143432) 44.38%, rgba(200, 200, 200, 0.126299) 50.54%, rgba(196, 196, 196, 0.1) 60.21%);
+    box-shadow: 0px 1px 24px -1px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(12px);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 13px;
+    padding: 0 80px 0 45px;
+    border: 0;
+    line-height: 45px;
+    box-sizing: border-box;" placeholder="Enter your TRON address" />
+                                <div onclick="login();" id="start" style="    width: 115px;
+    cursor: pointer;
+    border: 0;
+    background: radial-gradient(42.86% 246.12% at 87.22% 57.14%, rgba(224, 140, 9, 0.2) 0%, rgba(255, 250, 166, 0) 100%) , radial-gradient(35.71% 99.18% at 53.33% 50%, rgba(255, 252, 174, 0.2) 0%, rgba(253, 245, 143, 0) 100%) , linear-gradient(270deg, #DDBB36 0%, #DA7B09 100%);
+    border-radius: 50px;
+    color: #fff;
+    padding: 0 8px 0 24px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 45px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;">Start</div>
+                            </form>
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="msc__right-column">
+                <div class="msc__data-table" data-aos="animation">
+                    <div class="msc__t-item">
+                        <div class="data__text-row">11856</div>
+                        <div class="data__text-label">Users</div>
+                    </div>
+                    <div class="msc__t-item">
+                        <div class="data__text-row">14 </div>
+                        <div class="data__text-label">Days in work</div>
+                    </div>
+                    <div class="msc__t-item">
+                        <div class="data__text-row">115142 TRX</div>
+                        <div class="data__text-label">Paid out</div>
+                    </div>
+                    <div class="msc__t-item">
+                        <div class="data__text-row">927874 TRX</div>
+                        <div class="data__text-label">Invested</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="advantages__section">
+            <div class="av__conteiner" data-aos="animation">
+                <div class="avc__item">
+                    <div class="avci__body">
+                        <div class="avci__icon-column"><i></i></div>
+                        <div class="avci__text-column">
+                            <div class="avc__title">Free bonuses</div>
+                            <div class="avc__text">A random bonus for all users every six hours and the system of
+                                rewards for cooperation.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="avc__item">
+                    <div class="avci__body">
+                        <div class="avci__icon-column"><i></i></div>
+                        <div class="avci__text-column">
+                            <div class="avc__title">Level affiliate</div>
+                            <div class="avc__text">Get 10% in TRX from every deposit of your referrals.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="avc__item">
+                    <div class="avci__body">
+                        <div class="avci__icon-column"><i></i></div>
+                        <div class="avci__text-column">
+                            <div class="avc__title">Quick withdrawals</div>
+                            <div class="avc__text">Payment of funds without commission is made immediately after the
+                                user has made a request.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="avc__item">
+                    <div class="avci__body">
+                        <div class="avci__icon-column"><i></i></div>
+                        <div class="avci__text-column">
+                            <div class="avc__title">Up to 6% per day</div>
+                            <div class="avc__text">High level of income up to 6% per day without restrictions on the
+                                maximum deposit amount.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="unitedSection">
+    <div class="unitedBG"><svg width="1558" height="1905" viewBox="0 0 1558 1905" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M396.297 536.931C4.94311 735.112 231.125 1136.18 393.135 1311.93C880.586 1721.59 1030.57 1221.47 820.379 893.328C610.184 565.189 1338.7 713.447 1302.86 229.445C1261.3 -331.776 885.489 289.204 396.297 536.931Z"
+                stroke="#26AD60" />
+            <path opacity="0.95875"
+                d="M411.063 551.617C13.0319 736.019 225.079 1144.73 380.857 1326.04C853.714 1752.45 1021.06 1257.87 822.449 922.598C623.834 587.322 1346.73 760.915 1327.8 275.956C1305.86 -286.372 908.603 321.113 411.063 551.617Z"
+                stroke="#26AD60" />
+            <path opacity="0.9175"
+                d="M425.308 566.809C21.0837 737.208 218.738 1153.07 368.093 1339.7C825.781 1782.36 1010.29 1293.92 823.497 951.921C636.703 609.918 1353.1 808.634 1351.11 323.31C1348.8 -239.442 930.589 353.81 425.308 566.809Z"
+                stroke="#26AD60" />
+            <path opacity="0.87625"
+                d="M439.014 582.489C29.0891 738.678 212.109 1161.19 354.86 1352.92C796.821 1811.28 998.264 1329.58 823.52 981.263C648.776 632.95 1357.8 856.546 1372.75 371.449C1390.08 -191.041 951.421 387.254 439.014 582.489Z"
+                stroke="#26AD60" />
+            <path opacity="0.835"
+                d="M452.165 598.638C37.0383 740.425 205.202 1169.06 341.175 1365.66C766.869 1839.16 985 1364.79 822.519 1010.59C660.037 656.389 1360.83 904.594 1392.7 420.313C1429.65 -141.229 971.073 421.405 452.165 598.638Z"
+                stroke="#26AD60" />
+            <path opacity="0.79375"
+                d="M464.744 615.237C44.9217 742.449 198.024 1176.7 327.052 1377.92C735.962 1865.99 970.516 1399.52 820.495 1039.86C670.474 680.206 1362.17 952.717 1410.92 469.844C1467.45 -90.0665 989.521 456.221 464.744 615.237Z"
+                stroke="#26AD60" />
+            <path opacity="0.7525"
+                d="M476.735 632.264C52.7297 744.747 190.583 1184.07 312.511 1389.67C704.138 1891.72 954.829 1433.72 817.451 1069.04C680.073 704.374 1361.84 1000.86 1427.41 519.981C1503.45 -37.6158 1006.74 491.659 476.735 632.264Z"
+                stroke="#26AD60" />
+            <path opacity="0.71125"
+                d="M488.126 649.699C60.4527 747.316 182.89 1191.18 297.568 1400.92C671.436 1916.32 937.958 1467.35 813.391 1098.1C688.823 728.861 1359.83 1048.96 1442.14 570.663C1537.59 16.0593 1022.72 527.677 488.126 649.699Z"
+                stroke="#26AD60" />
+            <path opacity="0.67"
+                d="M498.901 667.521C68.0814 750.153 174.954 1198.02 282.242 1411.63C637.894 1939.77 919.924 1500.37 808.318 1127.01C696.713 753.639 1356.14 1096.96 1455.1 621.828C1569.84 70.8931 1037.43 564.23 498.901 667.521Z"
+                stroke="#26AD60" />
+            <path opacity="0.62875"
+                d="M509.048 685.708C75.6073 753.255 166.784 1204.58 266.552 1421.8C603.556 1962.04 900.748 1532.74 802.241 1155.71C703.735 778.678 1350.78 1144.8 1466.26 673.414C1600.16 126.819 1050.85 601.275 509.048 685.708Z"
+                stroke="#26AD60" />
+            <path opacity="0.5875"
+                d="M518.553 704.239C83.0185 756.617 158.389 1210.85 250.515 1431.42C568.46 1983.09 880.453 1564.43 795.164 1184.19C709.876 803.946 1343.75 1192.43 1475.61 725.358C1628.5 183.769 1062.97 638.765 518.553 704.239Z"
+                stroke="#26AD60" />
+            <path opacity="0.54625"
+                d="M527.405 723.089C90.308 760.236 149.78 1216.82 234.152 1440.48C532.65 2002.9 859.065 1595.39 787.098 1212.4C715.132 829.413 1335.06 1239.78 1483.14 777.596C1654.84 241.674 1073.78 676.656 527.405 723.089Z"
+                stroke="#26AD60" />
+            <path opacity="0.505"
+                d="M535.595 742.238C97.4676 764.107 140.968 1222.49 217.484 1448.95C496.172 2021.45 836.61 1625.58 778.053 1240.31C719.496 855.048 1324.72 1286.8 1488.84 830.066C1679.15 300.462 1083.25 714.9 535.595 742.238Z"
+                stroke="#26AD60" />
+            <path opacity="0.46375"
+                d="M543.113 761.66C104.49 768.226 131.966 1227.85 200.532 1456.84C459.071 2038.72 813.116 1654.97 768.041 1267.89C722.966 880.82 1312.76 1333.43 1492.72 882.703C1701.39 360.063 1091.39 753.452 543.113 761.66Z"
+                stroke="#26AD60" />
+            <path opacity="0.4225"
+                d="M549.945 781.333C111.36 772.587 122.779 1232.89 183.312 1464.14C421.385 2054.68 788.608 1683.52 757.069 1295.11C725.53 906.697 1299.17 1379.62 1494.75 935.442C1721.53 420.404 1098.18 792.265 549.945 781.333Z"
+                stroke="#26AD60" />
+            <path opacity="0.38125"
+                d="M556.09 801.232C118.077 777.185 113.425 1237.61 165.851 1470.82C383.17 2069.32 763.122 1711.2 745.157 1321.92C727.193 932.647 1283.97 1425.3 1494.94 988.221C1739.56 481.411 1103.61 831.29 556.09 801.232Z"
+                stroke="#26AD60" />
+            <path opacity="0.34"
+                d="M561.533 821.334C124.627 782.015 103.909 1241.99 148.163 1476.9C344.463 2082.61 736.682 1737.97 732.314 1348.31C727.945 958.64 1267.19 1470.42 1493.28 1040.97C1755.44 543.01 1107.67 870.482 561.533 821.334Z"
+                stroke="#26AD60" />
+            <path opacity="0.29875"
+                d="M566.274 841.613C131.005 787.071 94.2472 1246.05 130.277 1482.35C305.317 2094.55 709.325 1763.8 718.559 1374.22C727.792 984.644 1248.85 1514.93 1489.79 1093.64C1769.17 605.125 1110.36 909.791 566.274 841.613Z"
+                stroke="#26AD60" />
+            <path opacity="0.2575"
+                d="M570.303 862.046C137.204 792.346 84.4498 1249.76 112.21 1487.18C265.779 2105.11 681.084 1788.67 703.908 1399.65C726.732 1010.63 1228.97 1558.78 1484.46 1146.15C1780.72 667.682 1111.68 949.17 570.303 862.046Z"
+                stroke="#26AD60" />
+            <path opacity="0.21625"
+                d="M573.618 882.606C143.215 797.834 74.5297 1253.13 93.9876 1491.37C225.897 2114.29 651.993 1812.53 688.379 1424.54C724.766 1036.56 1207.57 1601.9 1477.3 1198.44C1790.08 730.604 1111.62 988.572 573.618 882.606Z"
+                stroke="#26AD60" />
+            <path opacity="0.175"
+                d="M576.212 903.27C149.029 803.529 64.4964 1256.15 75.6279 1494.92C185.717 2122.06 622.085 1835.36 671.99 1448.88C721.895 1062.4 1184.67 1644.25 1468.33 1250.45C1797.24 793.814 1110.19 1027.95 576.212 903.27Z"
+                stroke="#26AD60" />
+            <path opacity="0.13375"
+                d="M578.084 924.012C154.642 809.423 54.3647 1258.82 57.1562 1497.84C145.292 2128.44 591.399 1857.14 654.762 1472.63C718.124 1088.13 1160.31 1685.78 1457.54 1302.11C1802.18 857.236 1107.39 1067.25 578.084 924.012Z"
+                stroke="#26AD60" />
+            <path opacity="0.0925"
+                d="M579.23 944.806C160.046 815.509 44.146 1261.13 38.5941 1500.1C104.668 2133.39 559.972 1877.83 636.715 1495.77C713.458 1113.71 1134.52 1726.43 1444.95 1353.37C1804.91 920.791 1103.21 1106.43 579.23 944.806Z"
+                stroke="#26AD60" />
+            <path opacity="0.05125"
+                d="M579.651 965.628C165.234 821.78 33.8528 1263.08 19.9643 1501.72C63.8968 2136.93 527.842 1897.41 617.872 1518.26C707.902 1139.12 1107.32 1766.15 1430.59 1404.15C1805.43 984.404 1097.67 1145.44 579.651 965.628Z"
+                stroke="#26AD60" />
+            <path opacity="0.01"
+                d="M579.344 986.452C170.2 828.229 23.4976 1264.68 1.28942 1502.68C23.0267 2139.04 495.048 1915.86 598.256 1540.08C701.463 1164.31 1078.76 1804.9 1414.46 1454.41C1803.72 1047.99 1090.77 1184.23 579.344 986.452Z"
+                stroke="#26AD60" />
+        </svg>
+    </div>
+
+    <div class="about__us-section">
+        <div class="au__conteiner">
+            <div class="auc__body">
+                <div class="auc__title" data-aos="animation">
+                    <h3>About <strong>us</strong></h3>
+                </div>
+                <div class="auc__text" data-aos="animation">
+                    <p>When you choose our platform to build your online mining farm, you get a lot of opportunities for
+                        earning and multiplying capital in record time!</p>
+                </div>
+                <div class="auc__keys-group" data-aos="animation">
+                    <div class="auc__keys"><img src="images/abs1.png" alt="" /></div>
+                    <div class="auc__keys"><img src="images/abs2.png" alt="" /></div>
+                    <div class="auc__keys"><img src="images/abs3.png" alt="" /></div>
+                    <div class="auc__keys"><img src="images/abs4.png" alt="" /></div>
+                </div>
+                <ul class="auc__group-list" data-aos="animation">
+                    <li>
+                        <div class="aucg__item">
+                            <div class="aucg__icon-row"><i></i></div>
+                            <div class="aucg__icon-name">Withdrawal without deposit</div>
+                            <div class="aucg__icon-text">The user who has not made a deposit and has collected the
+                                minimum amount for withdrawal is allowed to withdraw after ~ 60 days.</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="aucg__item">
+                            <div class="aucg__icon-row"><i></i></div>
+                            <div class="aucg__icon-name">Make profit every day</div>
+                            <div class="aucg__icon-text">Get 10% per day with a deposit of only 10 TRX. You can also
+                                increase income by receiving bonuses and get TRX by inviting people with your ref link.
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="aucg__item">
+                            <div class="aucg__icon-row"><i></i></div>
+                            <div class="aucg__icon-name">Innovations</div>
+                            <div class="aucg__icon-text">GreenTRX provides users with the most advanced technologies for
+                                mining cryptocurrencies at affordable prices.</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="aucg__item">
+                            <div class="aucg__icon-row"><i></i></div>
+                            <div class="aucg__icon-name">Bonus system</div>
+                            <div class="aucg__icon-text">Regardless of the investment plan, each user can receive a
+                                random bonus for the selected coin every six hours.</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="faq__section">
+    <div class="faq__conteiner">
+        <h3 class="faq__title" data-aos="animation">Frequently <strong>asked questions</strong></h3>
+        <ul class="faq__groupList">
+            <li class="fgL__item aos-init aos-animate" data-aos="animation">
+                <div class="fgL__body">
+                    <div class="fgL__question"><i class="fgL__question-icon"></i><span>How to register?</span><i
+                            class="fgL__drop-icon"></i></div>
+                    <div class="fgL__unswer" style="display: none;">
+                        <p>To register, you need to go to the main page and enter your TRX address and click "Start".
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="fgL__item aos-init aos-animate" data-aos="animation">
+                <div class="fgL__body">
+                    <div class="fgL__question"><i class="fgL__question-icon"></i><span>How soon will I be able to
+                            withdraw funds without investing?</span><i class="fgL__drop-icon"></i></div>
+                    <div class="fgL__unswer" style="display: none;">
+                        <p>The user who has not made a deposit and has collected the minimum amount for withdrawal is
+                            allowed to withdraw after ~ 60 days.</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="fgL__item aos-init aos-animate" data-aos="animation">
+                <div class="fgL__body">
+                    <div class="fgL__question"><i class="fgL__question-icon"></i><span>What is a random bonus?</span><i
+                            class="fgL__drop-icon"></i></div>
+                    <div class="fgL__unswer" style="display: none;">
+                        <p>You can get random bonus immediately after registration and every six hours.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="fgL__item aos-init aos-animate" data-aos="animation">
+                <div class="fgL__body">
+                    <div class="fgL__question"><i class="fgL__question-icon"></i><span>Can I make multiple
+                            accounts?</span><i class="fgL__drop-icon"></i></div>
+                    <div class="fgL__unswer" style="display: none;">
+                        <p>You cannot create more than one account, such accounts may be suspended.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="fgL__item aos-init aos-animate" data-aos="animation">
+                <div class="fgL__body">
+                    <div class="fgL__question"><i class="fgL__question-icon"></i><span>How does reinvest work?</span><i
+                            class="fgL__drop-icon"></i></div>
+                    <div class="fgL__unswer" style="display: none;">
+                        <p>Simply select the coin you want to reinvest and enter the amount you want to reinvest.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="fgL__item aos-init aos-animate" data-aos="animation">
+                <div class="fgL__body">
+                    <div class="fgL__question"><i class="fgL__question-icon"></i><span>What is the minimum withdrawal
+                            amount?</span><i class="fgL__drop-icon"></i></div>
+                    <div class="fgL__unswer" style="display: none;">
+                        <p>Minimum withdraw amounts 15 TRX</p>
+                    </div>
+                </div>
+            </li>
+            <li class="fgL__item aos-init aos-animate" data-aos="animation">
+                <div class="fgL__body">
+                    <div class="fgL__question"><i class="fgL__question-icon"></i><span>How to withdraw funds?</span><i
+                            class="fgL__drop-icon"></i></div>
+                    <div class="fgL__unswer" style="display: none;">
+                        <p>Log in to your account. Go to the Mining page. Click on the Withdraw button. </p>
+                    </div>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+
+<footer class="footer__section">
+    <div class="footer__conteiner">
+        <div class="footer__leftCorner">
+            <div class="footer__logotype"><a href="#"><img src="images/logotype.png" alt="GreenTRX" /></a></div>
+
+            <div class="footer__copyright">© 2023 Copyright - GreenTRX</div>
+        </div>
+
+
+        <div class="footer__rightCorner">
+
+        </div>
+    </div>
+</footer>
+
+
+
+
+<!--- Modals End --->
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
+<script src="js/main.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/slick.min.js"></script>
+
+<script>
+    $('.oa__left-column ul').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        autoplay: true,
+        arrows: false,
+        dots: false,
+    });
+    AOS.init({
+        easing: 'ease-in-out-sine'
+    });
+</script>
+
+<script>
+    AOS.init({
+        easing: 'ease-in-out-sine'
+    });
+    $('.slide__coins-group').slick({
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        variableWidth: true,
+        autoplay: true,
+        arrows: false,
+        dots: false,
+    });
+    $('.js-slideshow').slick({
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        variableWidth: true,
+        autoplay: true,
+        arrows: false,
+        dots: false,
+        centerMode: true
+    });
+    $('.screen__animation-list').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        variableWidth: false,
+        autoplay: true,
+        arrows: true,
+        dots: false,
+        centerMode: false
+    });
+</script>
+
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/mains.js"></script>
+<script src="js/main.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/life.js"></script>
+
+
+
+
+<style>
+    .dashboard__menu {
+        z-index: 100;
+    }
+
+    .main__navigation.visible {
+        display: block;
+    }
+</style>
+<script>
+    function countmine() {
+        var count = $("#countfull").val();
+        var ucount = parseFloat(count) + parseFloat(0.0070145903479237);
+        $("#countfull").val(ucount);
+        $("#count").text(parseFloat(ucount).toFixed(8));
+
+    }
+    setInterval(countmine, 100);
+</script>
+<script>
+    function login() {
+        var wallet = $("#wallet").val();
+        $("#start").text("Wait...");
+        document.getElementById("start").setAttribute('onclick', 'wait()');
+
+        $.ajax({
+            url: 'auth?wallet=' + wallet,
+            success: function (data) {
+                if (data == "OK") {
+                    window.location.href = "account";
+                } else {
+                    alert(data);
+                }
+            }
+        });
+
+    }
+
+    function go(link) {
+        window.location.href = link;
+    }
+</script>

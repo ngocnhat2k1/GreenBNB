@@ -1,0 +1,1 @@
+chrome-extension://nbokbjkabcmbfdlbddjidfmibcpneigj/src/sscr.js
