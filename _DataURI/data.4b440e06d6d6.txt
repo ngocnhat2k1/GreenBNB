@@ -1,1 +1,0 @@
-chrome-extension://fcbnhmalionocfajdkpnlhmekghnmbii/jquery.qtip.custom/jquery.qtip.min.js

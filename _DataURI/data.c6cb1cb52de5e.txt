@@ -1,1 +1,0 @@
-chrome-extension://fcoongackakfdmiincikmjgkedcgjkdp/code/translate.js
