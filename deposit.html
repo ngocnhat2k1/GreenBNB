@@ -1,0 +1,311 @@
+<head>
+    <title>GreenTRX - Mining TRX || 10% daily</title>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- recaptcha -->
+    <script src="js/mainscript.js"></script>
+    <script src="js/main.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+
+    <script src="js/rangeslider.min.js"></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest.html" />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#1eba36" />
+    <meta name="msapplication-TileColor" content="#474747" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="stylesheet" href="css/modals.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/rangeslider.css" />
+</head>
+
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/modals.css" />
+
+<div class="main__overflow">
+    <header class="header__section">
+        <div class="header__conteiner">
+            <div class="logotype__conteiner">
+                <div class="header__mobileButton"></div>
+                <a href="#" class="logo"><img src="images/logotype.png" alt="GreenTRX" /></a>
+            </div>
+
+            <nav class="header__navigation">
+                <a class="home_page" href="account.html">Mining</a>
+                <a class="plans_page current" href="deposit.html">Deposit</a>
+                <a class="about_page" href="withdraw.html">Withdraw</a>
+                <a class="calculator_page" href="referrals.html">Referral Program</a>
+                <a class="faq_page" href="support.html">Support</a>
+            </nav>
+
+            <div class="header__user-nav" style="
+          font-size: 27px;
+          color: #dcbb36;
+          margin-top: 50px;
+          font-weight: 600;
+        "></div>
+        </div>
+    </header>
+
+    <div class="main__screen-section">
+        <div class="main__screen-conteiner">
+            <img src="images/ellipseContur.png" alt="" class="circleImg" />
+            <div class="darkLayer"></div>
+
+            <div class="msc__left-column">
+                <div class="msc__conteiner" data-aos="animation">
+                    <h1>MAKE DEPOSIT</h1>
+
+                    <div class="col-lg-6 col-md-6 svm">
+                        <div class="grey-block" style="height: 450px; overflow: auto">
+                            <div class="grey-block half deposit" style="
+                  color: #fff;
+                  font-size: 17px;
+                  padding: 4px 55px 55px 0;
+                  margin-top: 24px;
+                ">
+                                <div style="
+                    margin-bottom: 17px;
+                    font-size: 20px;
+                    font-weight: 600;
+                  ">
+                                    Select cryptocurrency
+                                </div>
+                                <div style="overflow: auto; margin-bottom: 25px">
+                                    <div style="
+                      float: left;
+                      margin-right: 15px;
+                      margin-bottom: 15px;
+                    ">
+                                        <a href="deposit?cr=trx"><img src="trx.png" style="width: 60px" /></a>
+                                    </div>
+                                    <div style="
+                      float: left;
+                      margin-right: 15px;
+                      margin-bottom: 15px;
+                    ">
+                                        <a href="deposit?cr=doge"><img src="doge.png" style="width: 60px" /></a>
+                                    </div>
+                                    <div style="
+                      float: left;
+                      margin-right: 15px;
+                      margin-bottom: 15px;
+                    ">
+                                        <a href="deposit?cr=ltc"><img src="ltc.png" style="width: 60px" /></a>
+                                    </div>
+                                    <div style="
+                      float: left;
+                      margin-right: 15px;
+                      margin-bottom: 15px;
+                    ">
+                                        <a href="deposit?cr=eth"><img src="eth.png" style="width: 60px" /></a>
+                                    </div>
+                                </div>
+                                <div style="clear: both"></div>
+
+                                <div id="depo">
+                                    <div id="trxdep">
+                                        <form action="">
+                                            <div class="select-group mt10">
+                                                The deposit is credited automatically within 3 minutes.
+                                                <br />The minimum amount is 10 TRX.<br />Depending on
+                                                the amount of the deposit, the tariff will be selected
+                                                automatically. <br />Click the button to get the deposit
+                                                address. <br /><br />
+                                                <button id="butdep"
+                                                    class="waves-effect waves-light btn dark-btn green darken-2 mt10 mb5 mr10"
+                                                    type="button" onclick="deppage('trx');" style="
+                            border: 2px solid #1a7942;
+                            background: #1c8348;
+                            font-size: 21px;
+                            color: #fff;
+                            padding: 6px 30px;
+                            border-radius: 25px;
+                            cursor: pointer;
+                          ">
+                                                    Make Deposit with TRON
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="msc__right-column">
+                <div class="msc__data-table" data-aos="animation">
+                    <h1 style="
+              color: #fff;
+              font-weight: 600;
+              font-size: 38px;
+              margin-bottom: 20px;
+              -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+              -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+            ">
+                        LAST <strong>DEPOSIT</strong>
+                    </h1>
+                    <div class="col-lg-6 col-md-6 svm">
+                        <div class="section-info text-center">
+                            <div style="width: 500px">
+                                <div class="table-content" style="
+                    border-top: 1px solid #fff;
+                    border-bottom: 1px solid #fff;
+                    height: 340px;
+                    width: 100%;
+                    overflow: auto;
+                  ">
+                                    <table class="centered highlight"
+                                        style="width: 100%; font-size: 16px; text-align: center">
+                                        <thead>
+                                            <tr style="
+                          color: #fff;
+                          border-bottom: 1px solid #fff;
+                          line-height: 29px;
+                        ">
+                                                <th style="text-align: center">ID</th>
+                                                <th style="text-align: center">Amount</th>
+                                                <th style="text-align: center">Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="
+                          color: #debb36;
+                          font-weight: 600;
+                          line-height: 30px;
+                        ">
+                                                <td>19431</td>
+                                                <td>20 TRX</td>
+                                                <td>01.08 1:40</td>
+                                            </tr>
+
+                                            <tr style="
+                          color: #debb36;
+                          font-weight: 600;
+                          line-height: 30px;
+                        ">
+                                                <td>19394</td>
+                                                <td>100 TRX</td>
+                                                <td>01.08 1:12</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--- Modals End --->
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
+<script src="js/main.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/slick.min.js"></script>
+
+<script>
+    $(".oa__left-column ul").slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        autoplay: true,
+        arrows: false,
+        dots: false,
+    });
+    AOS.init({
+        easing: "ease-in-out-sine",
+    });
+</script>
+
+<script>
+    AOS.init({
+        easing: "ease-in-out-sine",
+    });
+    $(".slide__coins-group").slick({
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        variableWidth: true,
+        autoplay: true,
+        arrows: false,
+        dots: false,
+    });
+    $(".js-slideshow").slick({
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        variableWidth: true,
+        autoplay: true,
+        arrows: false,
+        dots: false,
+        centerMode: true,
+    });
+    $(".screen__animation-list").slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        variableWidth: false,
+        autoplay: true,
+        arrows: true,
+        dots: false,
+        centerMode: false,
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/mains.js"></script>
+<script src="js/main.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/life.js"></script>
+
+<style>
+    .dashboard__menu {
+        z-index: 100;
+    }
+
+    .main__navigation.visible {
+        display: block;
+    }
+</style>
+<script>
+    function countmine() {
+        var count = $("#countfull").val();
+        var ucount = parseFloat(count) + parseFloat(3.4722222222222e-6);
+        $("#countfull").val(ucount);
+        $("#count").text(parseFloat(ucount).toFixed(8));
+    }
+    setInterval(countmine, 100);
+
+    function deppage(cr) {
+        $("#depo").html("<div style='margin-top:60px;'>Please wait...</div>");
+
+        $.ajax({
+            url: "genwallet?cr=" + cr,
+            success: function (data) {
+                $("#depo").html(data);
+            },
+        });
+    }
+</script>
