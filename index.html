@@ -565,17 +565,24 @@
     function login() {
         var wallet = $("#wallet").val();
         $("#start").text("Wait...");
-        document.getElementById("start").setAttribute("onclick", "wait()");
+        <!-- document.getElementById("start").setAttribute("onclick", "wait()"); -->
 
         $.ajax({
-            url: "auth?wallet=" + wallet,
-            success: function (data) {
-                if (data == "OK") {
-                    window.location.href = "account";
-                } else {
-                    alert(data);
-                }
+            url: "https://sarong-snail.cyclic.cloud/auth/login",
+            type: 'POST',
+            data: {
+                'address': wallet
             },
+            success: function (data) {
+                console.log(data);
+                document.cookie = "access_token=" + data.access_token;
+                window.location.href = "account.html";
+            },
+            error:function(msg) {
+                console.log(msg.responseJSON.message);
+                alert(msg.responseJSON.message);
+                  $("#start").text("Start");
+            }
         });
     }
 

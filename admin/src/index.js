@@ -10,7 +10,7 @@ root.render(
   <React.StrictMode>
     <Helmet>
       <meta charSet="utf-8" />
-      <title>Hướng Dương Shop - Admin</title>
+      <title>GreenBNB - Admin</title>
     </Helmet>
     <App />
   </React.StrictMode>

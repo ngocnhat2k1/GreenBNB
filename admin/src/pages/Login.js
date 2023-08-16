@@ -12,9 +12,9 @@ class Login extends Component {
 
 
   render() {
-    if (Cookies.get('adminToken') !== undefined) {
-      window.location.href = 'http://localhost:4000';
-    };
+    // if (Cookies.get('adminToken') !== undefined) {
+    //   window.location.href = 'http://localhost:4000';
+    // };
 
     return (
       <div className="App" style={{ padding: 0 }}>

@@ -8,8 +8,6 @@ import GlobalStyles from "./Components/GlobalStyles";
 import './App.css';
 import Vendor from "./pages/Vendor";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
-import AccountEditArea from "./Components/AccountEditArea";
 
 function App() {
   return (
@@ -17,9 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/*" element={<Vendor />} />
-          <Route path='/login' element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/changeInformation" element={<AccountEditArea />} />
+          {/* <Route path='/login' element={<Login />} /> */}
         </Routes>
       </BrowserRouter>
     </GlobalStyles>

@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
-import { FaTachometerAlt, FaShoppingCart, FaShoppingBag, FaUser, FaListAlt, FaGift, FaCommentAlt } from "react-icons/fa"
 import "./TabList.css"
 
 
 function TabList() {
-    const duongdan = window.location.pathname
-    const [isActive, setActive] = useState(duongdan)
+    const pathname = window.location.pathname
+    const [isActive, setActive] = useState(pathname)
 
     return (
         <>
@@ -16,46 +15,13 @@ function TabList() {
                         <Link
                             onClick={() => setActive('/')}
                             className={`${isActive === "/" ? 'active_tablist' : ' '} `}
-                            to="/"> <i> <FaTachometerAlt color='black' /></i> Tổng Quan </Link>
+                            to="/"> Data Homepage </Link>
                     </li>
                     <li>
                         <Link
-                            onClick={() => setActive('/all-products')}
-                            className={`${isActive === "/all-products" ? 'active_tablist' : isActive === "/add-products" ? 'acitve_tablist' : ' '} `}
-                            to="/all-products">  <i> <FaShoppingCart color='black' /></i> Danh Sách Sản Phẩm </Link>
-                    </li>
-                    <li>
-                        <Link
-                            onClick={() => setActive('/all-order')}
-                            className={`${isActive === "/all-order" ? 'active_tablist' : ' '} `}
-                            to="/all-order">  <i> <FaShoppingBag color='black' /></i> Danh Sách Đơn Hàng </Link>
-                    </li>
-                    <li
-                    >
-                        <Link
-                            onClick={() => setActive('/vendor-users')}
-                            className={`${isActive === "/vendor-users" ? 'active_tablist' : ' '} `}
-                            to="/vendor-users">  <i> <FaUser color='black' /></i> Danh Sách Người Dùng </Link>
-                    </li>
-                    <li
-                    >
-                        <Link
-                            onClick={() => setActive('/vendor-category')}
-                            className={`${isActive === "/vendor-category" ? 'active_tablist' : isActive === "/add-category" ? 'active_tablist' : ''} `}
-                            to="/vendor-category">  <i> <FaListAlt color='black' /></i> Danh Mục </Link>
-                    </li>
-                    <li
-                    >
-                        <Link
-                            onClick={() => setActive('/vendor-voucher')}
-                            className={`${isActive === "/vendor-voucher" ? 'active_tablist' : isActive === "/add-voucher" ? 'active_tablist' : ''} `}
-                            to="/vendor-voucher">  <i> <FaGift color='black' /></i> Mã Giảm Giá </Link>
-                    </li>
-                    <li>
-                        <Link
-                            onClick={() => setActive('/feedback')}
-                            className={`${isActive === "/feedback" ? 'active_tablist' : ' '} `}
-                            to="/feedback">  <i> <FaCommentAlt color='black' /></i> Bình Luận  </Link>
+                            onClick={() => setActive('/all-users')}
+                            className={`${isActive === "/all-users" ? 'active_tablist' : isActive === "/add-users" ? 'acitve_tablist' : ' '} `}
+                            to="/all-users">  Users Infomation </Link>
                     </li>
                 </ul>
             </div>

@@ -13,23 +13,23 @@ function usePaginate(url, query) {
     });
 
     useEffect(() => {
-        axios
-            .get(`${url}?${query.toString()}`, {
-                headers: {
-                    Authorization: `Bearer ${Cookies.get('adminToken')}`,
-                },
-            })
+        // axios
+        //     .get(`${url}?${query.toString()}`, {
+        //         headers: {
+        //             Authorization: `Bearer ${Cookies.get('adminToken')}`,
+        //         },
+        //     })
 
-            .then((response) => {
-                setData({
-                    data: response.data.data,
-                    total: response.data.total,
-                    page: response.data.current_page,
-                    lastPage: response.data.last_page,
-                    nextPage: response.data.current_page + 1,
-                    prevPage: response.data.current_page - 1,
-                });
-            });
+        //     .then((response) => {
+        //         setData({
+        //             data: response.data.data,
+        //             total: response.data.total,
+        //             page: response.data.current_page,
+        //             lastPage: response.data.last_page,
+        //             nextPage: response.data.current_page + 1,
+        //             prevPage: response.data.current_page - 1,
+        //         });
+        //     });
     }, [query.toString()]);
 
     return data;

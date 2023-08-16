@@ -11,31 +11,31 @@ const Dashboard = () => {
     const [totalProduct, setTotalProduct] = useState(0)
     const [totalSales, setTotalSales] = useState()
     useEffect(() => {
-        axios
-            .get(`http://127.0.0.1:8000/api/v1/orders`, {
-                headers: {
-                    Authorization: `Bearer ${Cookies.get('adminToken')}`,
-                },
-            })
-            .then((response) => {
-                setRecenOrders(response.data.data)
+        // axios
+        //     .get(`http://127.0.0.1:8000/api/v1/orders`, {
+        //         headers: {
+        //             Authorization: `Bearer ${Cookies.get('adminToken')}`,
+        //         },
+        //     })
+        //     .then((response) => {
+        //         setRecenOrders(response.data.data)
 
-            })
+        //     })
     }, [])
 
     useEffect(() => {
-        axios
-            .get(`http://127.0.0.1:8000/api/admin/dashboard`, {
-                headers: {
-                    Authorization: `Bearer ${Cookies.get('adminToken')}`,
-                },
-            })
-            .then((response) => {
-                console.log(response.data)
-                setOrderPending(response.data.totalOrdersPending)
-                setTotalProduct(response.data.totalProducts)
-                setTotalSales(response.data.totalSales)
-            })
+        // axios
+        //     .get(`http://127.0.0.1:8000/api/admin/dashboard`, {
+        //         headers: {
+        //             Authorization: `Bearer ${Cookies.get('adminToken')}`,
+        //         },
+        //     })
+        //     .then((response) => {
+        //         console.log(response.data)
+        //         setOrderPending(response.data.totalOrdersPending)
+        //         setTotalProduct(response.data.totalProducts)
+        //         setTotalSales(response.data.totalSales)
+        //     })
     }, [totalProduct])
 
     return (

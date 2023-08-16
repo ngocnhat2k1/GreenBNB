@@ -13,20 +13,20 @@ function TopHeader() {
     const [user, setUser] = useState();
 
     useEffect(() => {
-        if (Cookies.get('adminToken') !== undefined) {
-            axios
-                .get(`http://127.0.0.1:8000/api/admin/profile`, {
-                    headers: {
-                        Authorization: `Bearer ${Cookies.get('adminToken')}`,
-                    },
-                })
-                .then((response) => {
-                    setUser(response.data);
-                })
-                .catch(function (error) {
-                    console.log('error')
-                });
-        }
+        // if (Cookies.get('adminToken') !== undefined) {
+        //     axios
+        //         .get(`http://127.0.0.1:8000/api/admin/profile`, {
+        //             headers: {
+        //                 Authorization: `Bearer ${Cookies.get('adminToken')}`,
+        //             },
+        //         })
+        //         .then((response) => {
+        //             setUser(response.data);
+        //         })
+        //         .catch(function (error) {
+        //             console.log('error')
+        //         });
+        // }
     }, []);
     return (
         <section className={styles.divTopheader}>

@@ -26,25 +26,17 @@ const Product = () => {
                             <div className='vendor_order_boxed pt-4'>
                                 <div className='mb-2'>
                                     <h4>
-                                        Tất Cả Sản Phẩm
+                                        Tất cả user
                                     </h4>
-                                    <Link data-toggle="tab" className="theme-btn-one bg-black btn_sm add_prod_button" to="/add-products">
-                                        Thêm Sản Phẩm
-                                    </Link>
                                 </div>
                                 <div className='table-responsive'>
                                     <table className='table pending_table'>
                                         <thead>
                                             <tr>
-                                                <th scope="col">Ảnh</th>
-                                                <th scope="col">Tên Sản Phẩm</th>
-                                                <th scope="col">Danh Mục</th>
-                                                <th scope="col">Giá</th>
-                                                <th scope="col">Giảm giá</th>
-                                                <th scope='col'>Trạng Thái</th>
-                                                <th scope='col'>Xoá</th>
-                                                <th scope="col">Sửa/Xoá</th>
-
+                                                <th scope="col">Address</th>
+                                                <th scope="col">Profit</th>
+                                                <th scope="col">Deposit Address</th>
+                                                <th scope="col">Wallet</th>
                                             </tr>
                                         </thead>
                                         <tbody>
