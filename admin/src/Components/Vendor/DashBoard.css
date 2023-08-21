@@ -8,9 +8,19 @@
     transition: all .4s ease-in-out;
 }
 
-.vendor_top_box h2 {
+.vendor_top_box input {
     font-weight: 600;
+    font-size: 24px;
+    text-align: center;
     color: #f79837;
+    border: none;
+    height: 40px;
+
+}
+
+.vendor_top_box input[type=number]:focus {
+    outline: none !important;
+    border: none !important;
 }
 
 .dashboard_content .h4, .dashboard_content h4 {

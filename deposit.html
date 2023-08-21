@@ -157,28 +157,7 @@
                         <th style="text-align: center">Date</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr
-                        style="
-                          color: #debb36;
-                          font-weight: 600;
-                          line-height: 30px;
-                        ">
-                        <td>19431</td>
-                        <td>20 TRX</td>
-                        <td>01.08 1:40</td>
-                      </tr>
-
-                      <tr
-                        style="
-                          color: #debb36;
-                          font-weight: 600;
-                          line-height: 30px;
-                        ">
-                        <td>19394</td>
-                        <td>100 TRX</td>
-                        <td>01.08 1:12</td>
-                      </tr>
+                    <tbody id="data-deposit">
                     </tbody>
                   </table>
                 </div>
@@ -254,6 +233,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="js/scripts.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/mains.js"></script>
@@ -271,6 +251,44 @@
   }
 </style>
 <script>
+  function getAccount() {
+    if ($.cookie("access_token") == undefined) {
+      window.location.href = "index.html";
+    } else {
+      $.ajax({
+        url: "https://gifted-gold-handkerchief.cyclic.cloud/deposit-address/deposit-history",
+        headers: {
+          "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
+          Authorization: "Bearer " + $.cookie("access_token"),
+        },
+        type: "GET",
+        success: function (data) {
+        console.log(data);
+        var depositHistory = data.depositHistory;
+        var tableData = $("#data-deposit");
+        if (depositHistory.length > 0) {
+        depositHistory.map(function (deposit, index){tableData.html(`
+                <tr style=" color: #debb36; font-weight: 600; line-height: 30px; ">
+                      <td>19431</td>
+                      <td>20 TRX</td>
+                      <td>01.08 1:40</td>
+                </tr>`);
+        });}
+        else{
+         tableData.html("<h1 style='text-align: center; color: white; margin-top:20px'>No data</h1>")
+        }
+        
+        },
+        
+        error: function (msg) {
+          console.log(msg.responseJSON.message);
+          alert(msg.responseJSON.message);
+        },
+      });
+    }
+  }
+  getAccount();
+
   function countmine() {
     var count = $("#countfull").val();
     var ucount = parseFloat(count) + parseFloat(3.4722222222222e-6);
@@ -281,11 +299,21 @@
 
   function deppage(cr) {
     $("#depo").html("<div style='margin-top:60px;'>Please wait...</div>");
-
     $.ajax({
-      url: "genwallet?cr=" + cr,
+      url: "https://gifted-gold-handkerchief.cyclic.cloud/deposit-address",
+      headers: {
+        "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
+        Authorization: "Bearer " + $.cookie("access_token"),
+      },
+      type: "GET",
       success: function (data) {
-        $("#depo").html(data);
+        $("#depo").html(data.id);
+        
+        
+      },
+      error: function (msg) {
+        console.log(msg.responseJSON.message);
+        alert(msg.responseJSON.message);
       },
     });
   }
