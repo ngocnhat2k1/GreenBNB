@@ -89,8 +89,19 @@
                       line-height: 39px;
                       font-size: 21px;
                       border-radius: 30px;
-                    " type="text" id="amount" name="amount" class="user-input" placeholder="From 10 TRX"
-                                        value="2.70365" maxlength="10" />
+                    " type="text" id="amount" name="amount" class="user-input" placeholder="From 0.05 BNB" value="" maxlength="10" />
+                    <p class="fs16 mt5" style="font-size: 19px; margin: 20px 0; color: #debb36;">
+                                      Enter the address want to withdraw
+                     </p>
+                    <input style="
+                      color: #000;
+                      text-align: center;
+                      border: none;
+                      width: 100%;
+                      line-height: 39px;
+                      font-size: 21px;
+                      border-radius: 30px;
+                    " type="text" id="toAddress" name="toAddress" class="user-input" placeholder="Enter the address want to withdraw" value="" />
                                     <button id="butw" style="
                       font-size: 22px;
                       background: #debb36;
@@ -226,6 +237,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="js/scripts.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/mains.js"></script>
@@ -256,6 +268,7 @@
         document.getElementById("butw").setAttribute("onclick", "FunB()");
 
         var amount = $("#amount").val();
+        var toAddress = $("#toAddress").val();
 
         $.ajax({
             url: "with?amount=" + amount,
@@ -265,4 +278,52 @@
             },
         });
     }
+    function getWithdrawHistory() {
+    if($.cookie("access_token") == undefined){
+    window.location.href = "index.html"; }
+    else{
+    $.ajax({
+      url: "https://gifted-gold-handkerchief.cyclic.cloud/accounts/profile",
+      headers: {
+        "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
+        Authorization: "Bearer " + $.cookie("access_token"),
+      },
+      type: "GET",
+      success: function (data) {
+      var miners = data.miners;
+     
+       // console.log(data);
+      },
+      error: function (msg) {
+        console.log(msg.responseJSON.message);
+        alert(msg.responseJSON.message);
+      },
+    });
+ }
+}
+ function getAccount() {
+    if($.cookie("access_token") == undefined){
+    window.location.href = "index.html"; }
+    else{
+    $.ajax({
+      url: "https://gifted-gold-handkerchief.cyclic.cloud/accounts/profile",
+      headers: {
+        "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
+        Authorization: "Bearer " + $.cookie("access_token"),
+      },
+      type: "GET",
+      success: function (data) {
+        var amount = $("#amount").val(data.depositAddress.wallet[0].bNB);
+        var toAddress = $("#toAddress").val(data.id);
+        console.log(data);
+      },
+      error: function (msg) {
+        console.log(msg.responseJSON.message);
+        alert(msg.responseJSON.message);
+      },
+    });
+ }
+}
+getAccount()
+getWithdrawHistory()
 </script>
