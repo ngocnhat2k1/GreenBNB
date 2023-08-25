@@ -77,7 +77,7 @@
                         border: none;
                         font-size: 18px;
                         margin-bottom: 15px;
-                      " type="text" id="Name" placeholder="Name" class="contact-form-name required" />
+                      " type="text" id="name" placeholder="Name" class="contact-form-name required" />
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-md-12 animated" data-animation="fadeIn" data-animation-delay="200">
                                         <input style="
@@ -111,7 +111,7 @@
                         border: none;
                         font-size: 18px;
                         margin-bottom: 15px;
-                      " id="message" placeholder="Message" class="contact-form-message required" rows="4"></textarea>
+                      " id="message" placeholder="message" class="contact-form-message required" rows="4"></textarea>
                                         <button style="
                         margin: 0 auto;
                         width: 270px;
@@ -213,12 +213,19 @@
 
 <script>
     function mess() {
+        var name = $("#name").val();
         var email = $("#email").val();
         var mess = $("#message").val();
-        var address = $("#tron").val();
+        var address = $("#bnb").val();
 
         $.ajax({
             url: "sendm?email=" + email + "&mess=" + mess + "&id=" + address,
+            type: "POST",
+            data: {
+                email: email,
+                mess: mess,
+                id: address
+            },
             success: function(data) {
                 if (data == "OK") {
                     alert("Message sent");
@@ -235,7 +242,7 @@
             window.location.href = "index.html";
         } else {
             $.ajax({
-                url: "https://gifted-gold-handkerchief.cyclic.cloud/deposit-address/deposit-history",
+                url: "https://greenbnb.onrender.com/accounts/profile",
                 headers: {
                     "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
                     Authorization: "Bearer " + $.cookie("access_token"),

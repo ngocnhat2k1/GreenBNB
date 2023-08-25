@@ -239,8 +239,6 @@
           $("#count").text(data.depositAddress.wallet.bNB);
           $("#countfull").val(data.depositAddress.wallet.bNB);
           var miners = data.miners;
-          console.log(miners);
-          console.log(miners.length);
           if (miners.length > 0) {
             var tableMiners = $("#list-miners");
             var listMinerEl= miners.map(function (miner, index) { 
@@ -269,7 +267,11 @@
                 return minerItemHTML;
                 })
              tableMiners.html(listMinerEl.join(''));
-          } 
+          } else {
+            $("#list-miners").html(
+              "<h1 style='text-align: center'>No data</h1>"
+            );
+          }
                  
                    
         

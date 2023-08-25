@@ -73,8 +73,7 @@
                   margin-top: 24px;
                 ">
                                 <div>
-                                    Payments are made automatically within 5 minutes after the
-                                    application is submitted.
+                                    Payments are made automatically within 5 minutes after the application is submitted.
                                 </div>
 
                                 <form class="" action="">
@@ -90,10 +89,10 @@
                       font-size: 21px;
                       border-radius: 30px;
                     " type="text" id="amount" name="amount" class="user-input" placeholder="From 0.05 BNB" value="" maxlength="10" />
-                    <p class="fs16 mt5" style="font-size: 19px; margin: 20px 0; color: #debb36;">
-                                      Enter the address want to withdraw
-                     </p>
-                    <input style="
+                                    <p class="fs16 mt5" style="font-size: 19px; margin: 20px 0; color: #debb36">
+                                        Enter the address want to withdraw
+                                    </p>
+                                    <input style="
                       color: #000;
                       text-align: center;
                       border: none;
@@ -114,8 +113,8 @@
                       border-radius: 30px;
                       cursor: pointer;
                     " class="waves-effect waves-light btn dark-btn w220 mt5 mb10" type="button" onclick="withdraw();">
-                                        Withdraw
-                                    </button>
+                    Withdraw
+                  </button>
                                 </form>
                             </div>
                         </div>
@@ -146,24 +145,20 @@
                     width: 100%;
                     overflow: auto;
                   ">
-                                    <table class="centered highlight"
-                                        style="width: 100%; font-size: 16px; text-align: center">
+                                    <table class="centered highlight" style="width: 100%; font-size: 16px; text-align: center">
                                         <thead>
                                             <tr style="
                           color: #fff;
                           border-bottom: 1px solid #fff;
                           line-height: 29px;
                         ">
-                                                <th style="text-align: center">ID</th>
                                                 <th style="text-align: center">Amount</th>
                                                 <th style="text-align: center">TX</th>
                                                 <th style="text-align: center">Date</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td colspan="4">No payments yet</td>
-                                            </tr>
+                                        <tbody id="withdraw-history">
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -249,12 +244,19 @@
     .dashboard__menu {
         z-index: 100;
     }
-
+    
     .main__navigation.visible {
         display: block;
     }
 </style>
 <script>
+    function convert(dateString) {
+        const timestamp = Date.parse(dateString);
+        const dateObject = new Date(timestamp);
+        const time = dateObject.getDate() + "/" + (dateObject.getMonth() + 1) + "/" + dateObject.getFullYear() + " " + dateObject.getHours() + ":" + dateObject.getMinutes() + ":" + dateObject.getSeconds();
+        return time;
+    }
+
     function countmine() {
         var count = $("#countfull").val();
         var ucount = parseFloat(count) + parseFloat(3.4722222222222e-6);
@@ -271,59 +273,89 @@
         var toAddress = $("#toAddress").val();
 
         $.ajax({
-            url: "with?amount=" + amount,
-            success: function (data) {
-                alert(data);
-                window.location.href = "withdraw";
+            url: "https://greenbnb.onrender.com/withdraw-history/withdraw",
+            headers: {
+                "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
+                Authorization: "Bearer " + $.cookie("access_token"),
+            },
+            type: "POST",
+            data: {
+                money: amount,
+                toAddress: toAddress,
+            },
+            success: function(data) {
+                alert('You have successfully withdrawn, check it now');
+                window.location.href = "withdraw.html";
+
+            },
+            error: function(msg) {
+                console.log(msg.responseJSON.message);
+                alert(msg.responseJSON.message);
             },
         });
     }
+
     function getWithdrawHistory() {
-    if($.cookie("access_token") == undefined){
-    window.location.href = "index.html"; }
-    else{
-    $.ajax({
-      url: "https://gifted-gold-handkerchief.cyclic.cloud/accounts/profile",
-      headers: {
-        "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
-        Authorization: "Bearer " + $.cookie("access_token"),
-      },
-      type: "GET",
-      success: function (data) {
-      var miners = data.miners;
-     
-       // console.log(data);
-      },
-      error: function (msg) {
-        console.log(msg.responseJSON.message);
-        alert(msg.responseJSON.message);
-      },
-    });
- }
-}
- function getAccount() {
-    if($.cookie("access_token") == undefined){
-    window.location.href = "index.html"; }
-    else{
-    $.ajax({
-      url: "https://gifted-gold-handkerchief.cyclic.cloud/accounts/profile",
-      headers: {
-        "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
-        Authorization: "Bearer " + $.cookie("access_token"),
-      },
-      type: "GET",
-      success: function (data) {
-        var amount = $("#amount").val(data.depositAddress.wallet[0].bNB);
-        var toAddress = $("#toAddress").val(data.id);
-        console.log(data);
-      },
-      error: function (msg) {
-        console.log(msg.responseJSON.message);
-        alert(msg.responseJSON.message);
-      },
-    });
- }
-}
-getAccount()
-getWithdrawHistory()
+        if ($.cookie("access_token") == undefined) {
+            window.location.href = "index.html";
+        } else {
+            $.ajax({
+                url: "https://greenbnb.onrender.com/withdraw-history",
+                headers: {
+                    "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
+                    Authorization: "Bearer " + $.cookie("access_token"),
+                },
+                type: "GET",
+                success: function(data) {
+                    console.log(data);
+                    var tableData = $("#withdraw-history");
+                    if (data.length > 0) {
+                        const withdrawHistoryList = data.map(function(withdraw, index) {
+                            const withdrawHistoryItem = ` 
+                            <tr style=" color: #debb36; font-weight: 600; line-height: 30px; ">
+                              <td>${withdraw.bNB}</td>
+                              <td>${withdraw.tx}</td>
+                              <td>${convert(withdraw.time)}</td>
+                            </tr>`;
+                            return withdrawHistoryItem;
+                        });
+                        tableData.html(withdrawHistoryList.join(""));
+                    } else {
+                        tableData.html(
+                            "<tr><td colspan='4' style='color:white; '>No withdraw yet</td> </tr>"
+                        );
+                    }
+                },
+                error: function(msg) {
+                    console.log(msg.responseJSON.message);
+                    alert(msg.responseJSON.message);
+                },
+            });
+        }
+    }
+
+    function getAccount() {
+        if ($.cookie("access_token") == undefined) {
+            window.location.href = "index.html";
+        } else {
+            $.ajax({
+                url: "https://greenbnb.onrender.com/accounts/profile",
+                headers: {
+                    "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
+                    Authorization: "Bearer " + $.cookie("access_token"),
+                },
+                type: "GET",
+                success: function(data) {
+                    var amount = $("#amount").val(data.depositAddress.wallet.bNB);
+                    var toAddress = $("#toAddress").val(data.id);
+                },
+                error: function(msg) {
+                    console.log(msg.responseJSON.message);
+                    alert(msg.responseJSON.message);
+                },
+            });
+        }
+    }
+    getAccount();
+    getWithdrawHistory();
 </script>
