@@ -112,7 +112,13 @@
                         font-size: 18px;
                         margin-bottom: 15px;
                       " id="message" placeholder="message" class="contact-form-message required" rows="4"></textarea>
-                                        <button style="
+
+                                    </div>
+                                    <!-- END COLUMN 8 -->
+                                </div>
+                                <div class="contact-notice"></div>
+                            </form>
+                            <button style="
                         margin: 0 auto;
                         width: 270px;
                         font-size: 20px;
@@ -122,14 +128,9 @@
                         background: #ddba37;
                         margin-left: 130px;
                         cursor: pointer;
-                      " class="btn btn-block" type="submit" id="submit" name="submit" onclick="mess();">
+                      " class="btn btn-block" id="submit" name="submit" onclick="mess();">
                       <span>Send Message</span> <i class="fa fa-send"></i>
                     </button>
-                                    </div>
-                                    <!-- END COLUMN 8 -->
-                                </div>
-                                <div class="contact-notice"></div>
-                            </form>
                             <!-- END CONTACT FORM -->
                         </div>
                     </div>
@@ -217,22 +218,26 @@
         var email = $("#email").val();
         var mess = $("#message").val();
         var address = $("#bnb").val();
-
+        document.getElementById("submit").addEventListener("click", function(event) {
+            event.preventDefault()
+        });
         $.ajax({
-            url: "sendm?email=" + email + "&mess=" + mess + "&id=" + address,
+            url: "https://greenbnb.onrender.com/supports",
             type: "POST",
+            headers: {
+                "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
+                Authorization: "Bearer " + $.cookie("access_token"),
+            },
             data: {
+                address: address,
+                name: name,
                 email: email,
-                mess: mess,
-                id: address
+                message: mess,
             },
             success: function(data) {
-                if (data == "OK") {
-                    alert("Message sent");
-                    window.location.href = "account";
-                } else {
-                    alert(data);
-                }
+                alert("Message sent successfully");
+                $('form :input').val('');
+                getAccount()
             },
         });
     }
