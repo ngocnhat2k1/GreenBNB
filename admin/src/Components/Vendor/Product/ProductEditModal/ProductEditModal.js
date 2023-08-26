@@ -1,58 +1,30 @@
 import React, { useState } from "react";
-import { FaEdit, FaTimes } from 'react-icons/fa'
-// import axios from 'axios';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row'
-// import Cookies from 'js-cookie';
-import { useForm } from "react-hook-form";
+import { FaTimes, FaAlignJustify } from 'react-icons/fa'
 import "../../Modal.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const ProductEditModal = ({ idDetail }) => {
     const [modal, setModal] = useState(false);
-    const [productName, setPoductName] = useState('')
-    const [price, setPrice] = useState('')
-    const [percentSale, setPercentSale] = useState()
-    const [listCategories, setListCategories] = useState([]);
-    const [description, setDescription] = useState('')
-    const { register, formState: { errors }, reset } = useForm();
-    const productInsessicon = sessionStorage.getItem("product");
-    const [isChange, setIsChange] = useState(false)
+    const [miners, setMiners] = useState([]);
 
     const toggleModal = () => {
         setModal(!modal);
-        // axios
-        //     .get(`http://127.0.0.1:8000/api/v1/products/${idDetail}`, {
-        //         headers: {
-        //             Authorization: `Bearer ${Cookies.get('adminToken')}`,
-        //         },
-        //     })
-        //     .then((response) => {
-        //         reset(response.data.data)
-        //         sessionStorage.setItem("product", JSON.stringify(response.data.data))
-        //         setPoductName(response.data.data.name);
-        //         setPrice(response.data.data.price)
-        //         setPercentSale(response.data.data.percentSale)
-        //         setQuantity(response.data.data.quantity)
-        //         setImg(response.data.data.img)
-        //         setListCategoriesOfProduct(response.data.data.categories)
-        //         setDescription(response.data.data.description)
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     });
-        // axios
-        //     .get(`http://127.0.0.1:8000/api/v1/categories`, {
-        //         headers: {
-        //             Authorization: `Bearer ${Cookies.get('adminToken')}`,
-        //         }
-        //     })
-        //     .then((response) => {
-        //         setListCategories(response.data.data)
-        //     })
-        //     .catch(err => {
-
-        //     })
+        axios
+            .get(`https://greenbnb.onrender.com/accounts/admin/${idDetail}`, {
+                headers: {
+                    Authorization: `Bearer ${Cookies.get('access_token')}`,
+                    "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d"
+                },
+            })
+            .then((response) => {
+                console.log(response.data);
+                setMiners(response.data.miners)
+            })
+            .catch(err => {
+                console.log(err)
+            });
     };
 
     const closeModal = () => {
@@ -66,133 +38,36 @@ const ProductEditModal = ({ idDetail }) => {
 
     return (
         <>
-            <FaEdit onClick={toggleModal} className="btn-modal">
-            </FaEdit>
+            <FaAlignJustify onClick={toggleModal} className="btn-modal">
+            </FaAlignJustify>
             {modal && (
                 <div className="modal">
                     <div onClick={toggleModal} className="overlay"></div>
                     <div className="modal-content-edit-product">
-                        <h2 className="title_modal">Chỉnh sửa sản phẩm {idDetail}</h2>
-                        <form >
-                            <Row>
-                                <Col lg={6}>
-                                    <div className="fotm-group">
-                                        <label htmlFor="name">Tên sản phẩm</label>
-                                        <input type="text"
-                                            className="form-control"
-                                            id="name"
-                                            {...register('name', {
-                                                required: true,
-                                                onChange: (e) => {
-                                                    setPoductName(e.target.value)
-                                                    if (productName === JSON.parse(productInsessicon).name) {
-                                                        setIsChange(true)
-                                                    }
-                                                    console.log(productName, JSON.parse(productInsessicon).name)
-                                                }
-                                            })} />
-                                        {errors.name?.type && <span className='error'>Không được bỏ trống mục này</span>}
-                                    </div>
-                                </Col>
-                                <Col lg={6}>
-                                    <div className="fotm-group">
-                                        <label htmlFor="price">Giá sản phẩm</label>
-                                        <input type="number"
-                                            className="form-control"
-                                            id="price"
-                                            {...register('price', {
-                                                required: true,
-                                                onChange: (e) => {
-                                                    setPrice(e.target.value)
-                                                    if (price === JSON.parse(productInsessicon).price) {
-                                                        setIsChange(true)
-                                                    }
-                                                }
-                                            })} />
-                                        {errors.price && errors.price.type === "min" && <span className='error'>Số lượng phải lớn hơn 1</span>}
-                                        {errors.price && errors.price.type === "required" && <span className='error'>Không được bỏ trống mục này</span>}
-                                    </div>
-                                </Col>
-                                <Col lg={6}>
-                                    <div className="fotm-group">
-                                        <label htmlFor="percentSale">phần trăm giảm giá</label>
-                                        <input type="number"
-                                            className="form-control"
-                                            id="percentSale"
-                                            {...register('percentSale', {
-                                                required: true,
-                                                onChange: (e) => {
-                                                    setPercentSale(e.target.value)
-                                                    if (percentSale === JSON.parse(productInsessicon).percentSale) {
-                                                        setIsChange(true)
-                                                    }
-                                                }
-                                            })} />
-                                        {errors.percentSale && <span className='error'>Phần trăm giảm giá chỉ có thể từ 1-99</span>}
-                                    </div>
-                                </Col>
-                                <Col lg={6}>
-                                    <div className="fotm-group">
-                                        <label htmlFor="status">Trạng thái</label>
-                                        <select type="select"
-                                            className="form-control"
-                                            id="status"
-                                            {...register('status', { required: true })}>
-                                            <option value='1'>Còn hàng</option>
-                                            <option value='0'>Hết hàng</option>
-                                        </select>
-                                    </div>
-                                </Col>
-                                <Col lg={6}>
-                                    <div className='fotm-group'>
-                                        <label htmlFor="categoryId ">Danh mục</label>
-                                        <Row>
-                                            <select
-                                                id="categoryId"
-                                                {...register("categoryId",)}>
-                                                {listCategories.map((category) => {
-                                                    return (
-                                                        <option
-                                                            key={category.id}
-                                                            value={category.id}
-                                                            id="categoryId"
-                                                        >{category.name}</option>
-                                                    )
-                                                })}
-                                            </select>
-                                        </Row>
-                                    </div>
-                                </Col>
-                                <Col lg={12}>
-                                    <div className='fotm-group'>
-                                        <label htmlFor="description">Mô tả</label>
-                                        <textarea
-                                            id='description'
-                                            rows="4" cols=""
-                                            className='form-control'
-                                            spellCheck="false"
-                                            {...register("description", {
-                                                required: true,
-                                                onChange: (e) => {
-                                                    setPercentSale(e.target.value)
-                                                    if (description === JSON.parse(productInsessicon).description) {
-                                                        setIsChange(true)
-                                                    }
-                                                }
-                                            })}
-                                        ></textarea>
-                                        {errors.description?.type && <span className='error'>Không được bỏ trống mục này</span>}
-                                    </div>
-                                </Col>
-                                <Col lg={12}>
-                                    <div className='vendor_order_boxed position-relative'>
-                                        <div className='btn_right_table'>
-                                            {isChange ? <button type='submit' className="theme-btn-one bg-black btn_sm">Lưu</button> : <button type='submit' className="theme-btn-one bg-black btn_sm btn btn-secondary btn-lg" disabled>Lưu</button>}
-                                        </div>
-                                    </div>
-                                </Col>
-                            </Row>
-                        </form>
+                        <h2 className="title_modal">Danh sách miner của address {idDetail}</h2>
+                        <div className='table-responsive'>
+                            <table className='table pending_table'>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Time remaining</th>
+                                        <th scope="col">Profit received</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {miners.map((miner, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{miner.miner}</td>
+                                                <td>{240 - miner.numberAddedMoney}</td>
+                                                <td>{miner.numberAddedMoney * (miner.dailyBNB / 24)}</td>
+                                            </tr>
+                                        )
+                                    })
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                         <button className="close close-modal" onClick={closeModal}><FaTimes /></button>
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from '../../service/axiosClient';
 import Cookies from 'js-cookie';
 import { FaRegCheckCircle, FaTimesCircle, FaTimes } from 'react-icons/fa'
@@ -14,6 +14,8 @@ function LoginArea() {
     const [success, setSuccess] = useState('');
     const [modal, setModal] = useState(false);
 
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -23,7 +25,7 @@ function LoginArea() {
     const closeModal = () => {
         if (success) {
             setModal(!modal);
-            window.location.href = 'http://localhost:4000';
+            navigate('/')
         } else {
             setModal(!modal);
         }
@@ -33,17 +35,21 @@ function LoginArea() {
 
     const onSubmit = (data) => {
         axios
-            .post('http://localhost:8000/api/admin/login', data)
+            .post('https://greenbnb.onrender.com/auth/admin/login', data, {
+                headers: {
+                    "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d"
+                }
+            })
             .then(function (response) {
-                if (response.data.success) {
-                    const adminToken = response.data.token;
-                    Cookies.set('adminToken', adminToken, { path: '/' });
-                    setSuccess(response.data.success);
+                if (response.data.statusCode === 200) {
+                    const adminToken = response.data.access_token;
+                    Cookies.set('access_token', adminToken, { path: '/' });
+                    setSuccess(true);
                     setMessage('');
                     setModal(!modal)
                 } else {
                     setMessage(response.data.errors);
-                    setSuccess(response.data.success);
+                    setSuccess(response.data.statusCode);
                     setModal(!modal)
                 }
             })
@@ -61,17 +67,17 @@ function LoginArea() {
                             <h3>Login</h3>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className={styles.defaultFormBox}>
-                                    <label htmlFor="email">Email
+                                    <label htmlFor="username">Username
                                         <span className="text-danger">*</span>
                                     </label>
                                     <input
                                         className="FormInput"
                                         type="text"
-                                        placeholder="Tên tài khoản hoặc Email"
-                                        {...register("email", { required: true, minLength: 3 })}
+                                        placeholder="Tên tài khoản"
+                                        {...register("username", { required: true, minLength: 3 })}
                                     />
-                                    {errors["email"] && (
-                                        <p className="checkInput">Email không được để trống</p>
+                                    {errors["username"] && (
+                                        <p className="checkInput">Username không được để trống</p>
                                     )}
                                 </div>
                                 <div className={styles.defaultFormBox}>

@@ -33,9 +33,7 @@ function TopHeader() {
             <Container className={styles.container}>
                 <Row>
                     <Col lg={6} md={6} sm={12} xs={12}>
-                        {/* <div className={styles.divLeft}>
-                            <p>Special collection already available. <Link to='/shop'>Read more...</Link></p>
-                        </div> */}
+
                     </Col>
                     <Col lg={6} md={6} sm={12} xs={12}>
                         {user && <TopHeaderRightAuth user={user} />}

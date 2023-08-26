@@ -1,21 +1,28 @@
-import React from 'react'
-import { Link, useSearchParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row'
 import '../DashBoard.css'
-import usePaginate from "../../Hook/usePagination/usePaginate";
-import styles from '../../Hook/usePagination/PaginatedItems.module.scss'
 import ListProducts from './ListProduct/ListProduct';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 
 
 const Product = () => {
-    const [searchParams] = useSearchParams();
-    const { data, page, nextPage, prevPage, lastPage } = usePaginate(
-        "http://localhost:8000/api/v1/products",
-        searchParams
-    );
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        axios
+            .get(`https://greenbnb.onrender.com/accounts/admin`, {
+                headers: {
+                    Authorization: `Bearer ${Cookies.get('access_token')}`,
+                    "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d"
+                },
+            })
+            .then((response) => {
+                setUsers(response.data);
+            })
+    }, [])
 
     return (
         <Col sm={12} md={12} lg={9}>
@@ -34,16 +41,15 @@ const Product = () => {
                                         <thead>
                                             <tr>
                                                 <th scope="col">Address</th>
-                                                <th scope="col">Profit</th>
                                                 <th scope="col">Deposit Address</th>
                                                 <th scope="col">Wallet</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <ListProducts listProducts={data} />
+                                            <ListProducts listProducts={users} />
                                         </tbody>
                                     </table>
-                                    < Col lg={12}>
+                                    {/* < Col lg={12}>
                                         <ul className={styles.pagination}>
                                             {page > 1 && <li className={styles.pageItem}>
                                                 <Link to={`?page=${prevPage}`} className={styles.pageLink}>«</Link>
@@ -62,7 +68,6 @@ const Product = () => {
                                             {page !== lastPage && <li className={styles.pageItem}>
                                                 <Link to={`?page=${nextPage}`} className={styles.pageLink}>{page + 1}</Link>
                                             </li>}
-                                            {/* {page - 1 === 0 && <li className={styles.pageItem}><Link to={`?page=${page + 2}`} className={styles.pageLink}>{page + 2}</Link></li>} */}
                                             {page !== lastPage && <li className={`${styles.pageItem} ${styles.disable}`}>
                                                 <Link className={styles.pageLink}>...</Link>
                                             </li>}
@@ -73,7 +78,7 @@ const Product = () => {
                                                 <Link to={`?page=${nextPage}`} className={styles.pageLink}>»</Link>
                                             </li>}
                                         </ul>
-                                    </Col>
+                                    </Col> */}
 
                                 </div>
                             </div>

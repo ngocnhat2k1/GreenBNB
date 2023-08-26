@@ -1,21 +1,16 @@
 import React from 'react'
-import DeleteProduct from '../DeleteProduct/DeleteProduct'
 import ProductEditModal from '../ProductEditModal/ProductEditModal'
 
 const ListProducts = ({ listProducts }) => {
     return (
-        <>{listProducts && Object.values(listProducts).map((Product) => {
+        <>{listProducts && Object.values(listProducts).map((user) => {
             return (
-                <tr key={Product.id}>
+                <tr key={user._id}>
+                    <td>{user._id}</td>
+                    <td>{user.depositAddress.id}</td>
+                    <td>{user.depositAddress.wallet.bNB}</td>
                     <td>
-                        <a href="/product-details-one/1 ">{Product.name}</a>
-                    </td>
-                    <td>${Product.price}</td>
-                    <td>{Product.percentSale}</td>
-                    {Product.status === 1 ? <td>Còn hàng</td> : <td>hết hàng</td>}
-                    {Product.deletedAt === 1 ? <td>đã xoá</td> : <td>chưa xoá</td>}
-                    <td>
-                        <div className='edit_icon'><ProductEditModal idDetail={Product.id} /></div>
+                        <div className='edit_icon'><ProductEditModal idDetail={user._id} /></div>
                     </td>
                 </tr>
             )
