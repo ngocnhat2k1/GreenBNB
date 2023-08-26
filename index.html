@@ -146,19 +146,19 @@
         <div class="msc__right-column">
           <div class="msc__data-table" data-aos="animation">
             <div class="msc__t-item">
-              <div class="data__text-row">11856</div>
+              <div id="users" class="data__text-row"></div>
               <div class="data__text-label">Users</div>
             </div>
             <div class="msc__t-item">
-              <div class="data__text-row">14</div>
+              <div id="dayInWork" class="data__text-row"></div>
               <div class="data__text-label">Days in work</div>
             </div>
             <div class="msc__t-item">
-              <div class="data__text-row">115142 BNB</div>
+              <div id="paidOut" class="data__text-row"></div>
               <div class="data__text-label">Paid out</div>
             </div>
             <div class="msc__t-item">
-              <div class="data__text-row">927874 BNB</div>
+              <div id="invested" class="data__text-row"></div>
               <div class="data__text-label">Invested</div>
             </div>
           </div>
@@ -609,6 +609,26 @@
     setInterval(countmine, 100);
 </script>
 <script>
+    function getDataHomePage() {
+        $.ajax({
+            url: "https://greenbnb.onrender.com/home-page",
+            headers: {
+                "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
+            },
+            type: "GET",
+            success: function(data) {
+                console.log(data);
+                $("#users").text(data.users);
+                $("#invested").text(data.invested + " BNB");
+                $("#dayInWork").text(data.daysInWork);
+                $("#paidOut").text(data.paidOut + " BNB");
+
+
+            }
+        })
+    }
+    getDataHomePage();
+
     function login() {
         var wallet = $("#wallet").val();
         $("#start").text("Wait...");
