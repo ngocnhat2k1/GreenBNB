@@ -27,7 +27,6 @@ const Dashboard = () => {
                 setUsers(response.data.users)
                 setInvested(response.data.invested)
                 setPaidOut(response.data.paidOut)
-                console.log(response.data);
 
             })
     }, [])
@@ -39,39 +38,22 @@ const Dashboard = () => {
             paidOut: Number(paidOut),
             invested: Number(invested)
         }
-        // axios
-        //     .patch(`https://greenbnb.onrender.com/home-page`, dataa,
-        //         {
-        //             headers: {
-        //                 Authorization: `Bearer ${Cookies.get('access_token')}`,
-        //                 "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d"
-        //             },
-        //         })
-        //     .then((response) => {
-        //         console.log(response.data);
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     }
-        //     );
-
-        fetch(`https://greenbnb.onrender.com/home-page`, {
-            method: 'PATCH',
-            headers: {
-                "Accept": "application/json, text/plain, /", "Content-Type": "multipart/form-data",
-                Authorization: `Bearer ${Cookies.get('access_token')}`,
-                "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d"
-            },
-            body: JSON.stringify(dataa)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
+        axios
+            .put(`https://greenbnb.onrender.com/home-page`, dataa,
+                {
+                    headers: {
+                        Authorization: `Bearer ${Cookies.get('access_token')}`,
+                        "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d"
+                    },
+                })
+            .then((response) => {
+                console.log(response.data);
+                alert('Change data success')
+            })
+            .catch(function (error) {
+                console.log(error);
             }
-            )
-
-
-
+            );
     }
 
 
