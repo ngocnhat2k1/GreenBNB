@@ -9,12 +9,16 @@ section {
     padding-bottom: 50px;
 }
 
-.container, .container-lg, .container-md, .container-sm, .container-xl {
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
     max-width: 1440px !important;
 }
 
 .colorOrange {
-    color: #f79837 !important;
+    color: #1c8348 !important;
 }
 
 body {
@@ -29,17 +33,28 @@ ul {
     clear: both;
 }
 
-input[type=date], input[type=email], input[type=number], input[type=password], input[type=text], select {
+input[type=date],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=text],
+select {
     min-height: 45px;
     background: #fff;
     border: 1px solid #ddd;
 }
 
-input[type=date]:focus, input[type=email]:focus, input[type=number]:focus, input[type=password]:focus, input[type=text]:focus, select:focus, textarea:focus {
+input[type=date]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=text]:focus,
+select:focus,
+textarea:focus {
     background-color: #fff;
     outline: none;
     box-sizing: none;
-    border: 1px solid #f79837 !important;
+    border: 1px solid #1c8348 !important;
     box-shadow: none;
 }
 
@@ -67,7 +82,7 @@ input[type=number] {
 }
 
 .svgQuestion {
-    color: #f79837 !important;
+    color: #1c8348 !important;
 }
 
 .colorSuccess {
@@ -76,5 +91,4 @@ input[type=number] {
 
 .colorFail {
     color: red !important;
-
 }

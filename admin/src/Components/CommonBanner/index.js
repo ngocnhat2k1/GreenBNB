@@ -12,11 +12,6 @@ function CommonBanner(prop) {
                     <Col lg={12}>
                         <div className={styles.commonBannerText}>
                             <h2>{prop.namePage}</h2>
-                            <ul>
-
-                                {/* <li className={styles.slash}>/</li> */}
-                                <li className={styles.active}>{prop.namePage}</li>
-                            </ul>
                         </div>
                     </Col>
                 </Row>
