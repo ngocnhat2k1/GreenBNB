@@ -239,7 +239,7 @@
             window.location.href = "index.html";
         } else {
             $.ajax({
-                url: "https://greenbnb.onrender.com/deposit-history",
+                url: "https://api.greenbnb.info/deposit-history",
                 headers: {
                     "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
                     Authorization: "Bearer " + $.cookie("access_token"),
@@ -286,7 +286,7 @@
     function deppage(cr) {
         $("#depo").html("<div style='margin-top:60px;'>Please wait...</div>");
         $.ajax({
-            url: "https://greenbnb.onrender.com/deposit-address",
+            url: "https://api.greenbnb.info/deposit-address",
             headers: {
                 "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
                 Authorization: "Bearer " + $.cookie("access_token"),

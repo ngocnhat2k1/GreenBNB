@@ -16,7 +16,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         axios
-            .get(`https://greenbnb.onrender.com/home-page`, {
+            .get(`https://api.greenbnb.info/home-page`, {
                 headers: {
                     Authorization: `Bearer ${Cookies.get('access_token')}`,
                     "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d"
@@ -39,7 +39,7 @@ const Dashboard = () => {
             invested: Number(invested)
         }
         axios
-            .put(`https://greenbnb.onrender.com/home-page`, dataa,
+            .put(`https://api.greenbnb.info/home-page`, dataa,
                 {
                     headers: {
                         Authorization: `Bearer ${Cookies.get('access_token')}`,

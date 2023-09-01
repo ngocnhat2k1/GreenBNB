@@ -611,7 +611,7 @@
 <script>
     function getDataHomePage() {
         $.ajax({
-            url: "https://greenbnb.onrender.com/home-page",
+            url: "https://api.greenbnb.info/home-page",
             headers: {
                 "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
             },
@@ -633,7 +633,7 @@
         <!-- document.getElementById("start").setAttribute("onclick", "wait()"); -->
 
         $.ajax({
-            url: "https://greenbnb.onrender.com/auth/login" + window.location.search,
+            url: "https://api.greenbnb.info/auth/login" + window.location.search,
             headers: {
                 "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
             },

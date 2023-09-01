@@ -225,7 +225,7 @@
 <script>
   function fetchMiner() {
     $.ajax({
-      url: "https://greenbnb.onrender.com/accounts/profile",
+      url: "https://api.greenbnb.info/accounts/profile",
       headers: {
         "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
         Authorization: "Bearer " + $.cookie("access_token"),
@@ -289,7 +289,7 @@
       window.location.href = "index.html";
     } else {
       $.ajax({
-        url: "https://greenbnb.onrender.com/deposit-history/byAddress",
+        url: "https://api.greenbnb.info/deposit-history/byAddress",
         headers: {
           "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
           Authorization: "Bearer " + $.cookie("access_token"),

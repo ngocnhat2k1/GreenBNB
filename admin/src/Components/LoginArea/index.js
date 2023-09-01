@@ -35,7 +35,7 @@ function LoginArea() {
 
     const onSubmit = (data) => {
         axios
-            .post('https://greenbnb.onrender.com/auth/admin/login', data, {
+            .post('https://api.greenbnb.info/auth/admin/login', data, {
                 headers: {
                     "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d"
                 }
