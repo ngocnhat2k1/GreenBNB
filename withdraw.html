@@ -172,7 +172,6 @@
 </div>
 
 <!--- Modals End --->
-<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 
@@ -349,9 +348,11 @@
                     var amount = $("#amount").val(data.depositAddress.wallet.bNB);
                     var toAddress = $("#toAddress").val(data.id);
                 },
-                error: function(msg) {
-                    console.log(msg.responseJSON.message);
-                    alert(msg.responseJSON.message);
+                error: function(error) {
+                    if (error.responseJSON.message === "Unauthorized") {
+                        window.location.href = "index.html";
+                    };
+                    alert(error.responseJSON.message);
                 },
             });
         }
