@@ -10,7 +10,7 @@ root.render(
   <React.StrictMode>
     <Helmet>
       <meta charSet="utf-8" />
-      <title>GreenBNB - Admin</title>
+      <title>X2 In 48h - Admin</title>
     </Helmet>
     <App />
   </React.StrictMode>

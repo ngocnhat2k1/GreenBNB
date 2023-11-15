@@ -1,5 +1,5 @@
 <head>
-    <title>GreenBNB - Mining BNB || 10% daily</title>
+    <title>X2 In 48h - Mining BNB || 10% daily</title>
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <link rel="shortcut icon" href="favicon.ico" />
@@ -36,7 +36,7 @@
         <div class="header__conteiner">
             <div class="logotype__conteiner">
                 <div class="header__mobileButton"></div>
-                <a href="#" class="logo"><img src="images/logotype.png" alt="GreenBNB" /></a>
+                <a href="#" class="logo"><img src="images/logotype.png" alt="X2 In 48h" /></a>
             </div>
 
             <nav class="header__navigation">
@@ -267,14 +267,14 @@
       window.location.href = "index.html";
     } else {
       $.ajax({
-        url: "https://api.greenbnb.info/accounts/profile",
+        url: "https://api.x2in48h.com/accounts/profile",
         headers: {
           "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
           Authorization: "Bearer " + $.cookie("access_token"),
         },
         type: "GET",
         success: function (data) {
-            $('#linkRefer').val('https://greenbnb.info/?referBy='+data.id);
+            $('#linkRefer').val('https://X2 In 48h.info/?referBy='+data.id);
         },
 
         error: function (msg) {
@@ -287,7 +287,7 @@
 
   function getHistory(){
      $.ajax({
-        url: "https://api.greenbnb.info/refer-history",
+        url: "https://api.x2in48h.com/refer-history",
         headers: {
           "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
           Authorization: "Bearer " + $.cookie("access_token"),

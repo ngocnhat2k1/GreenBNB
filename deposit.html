@@ -1,5 +1,5 @@
 <head>
-    <title>GreenBNB - Mining BNB || 10% daily</title>
+    <title>X2 In 48h - Mining BNB || 10% daily</title>
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <link rel="shortcut icon" href="favicon.ico" />
@@ -36,7 +36,7 @@
         <div class="header__conteiner">
             <div class="logotype__conteiner">
                 <div class="header__mobileButton"></div>
-                <a href="#" class="logo"><img src="images/logotype.png" alt="GreenBNB" /></a>
+                <a href="#" class="logo"><img src="images/logotype.png" alt="X2 In 48h" /></a>
             </div>
 
             <nav class="header__navigation">
@@ -238,7 +238,7 @@
             window.location.href = "index.html";
         } else {
             $.ajax({
-                url: "https://api.greenbnb.info/deposit-history",
+                url: "https://api.x2in48h.com/deposit-history",
                 headers: {
                     "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
                     Authorization: "Bearer " + $.cookie("access_token"),
@@ -286,7 +286,7 @@
     function deppage(cr) {
         $("#depo").html("<div style='margin-top:60px;'>Please wait...</div>");
         $.ajax({
-            url: "https://api.greenbnb.info/deposit-address",
+            url: "https://api.x2in48h.com/deposit-address",
             headers: {
                 "x-api-key": "9c30dbde-c67a-4638-b24e-94f01d78bd1d",
                 Authorization: "Bearer " + $.cookie("access_token"),
