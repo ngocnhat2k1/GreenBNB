@@ -100,7 +100,7 @@
                       line-height: 39px;
                       font-size: 21px;
                       border-radius: 30px;
-                    " type="text" id="toAddress" name="toAddress" class="user-input" placeholder="Enter the address want to withdraw" value="" />
+                    " type="text" id="toAddress" name="toAddress" class="user-input" placeholder="Enter the address want to withdraw" value="" disabled/>
                                     <button id="butw" style="
                       font-size: 22px;
                       background: #debb36;
@@ -113,8 +113,8 @@
                       border-radius: 30px;
                       cursor: pointer;
                     " class="waves-effect waves-light btn dark-btn w220 mt5 mb10" type="button" onclick="withdraw();">
-                    Withdraw
-                  </button>
+                                        Withdraw
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -249,6 +249,8 @@
     }
 </style>
 <script>
+    var toAddressDb
+
     function convert(dateString) {
         const timestamp = Date.parse(dateString);
         const dateObject = new Date(timestamp);
@@ -265,6 +267,7 @@
     setInterval(countmine, 100);
 
     function withdraw() {
+        console.log('toAddressDb', toAddressDb);
         $("#butw").text("Wait...");
         document.getElementById("butw").setAttribute("onclick", "FunB()");
 
@@ -280,7 +283,7 @@
             type: "POST",
             data: {
                 money: amount,
-                toAddress: toAddress,
+                toAddress: toAddressDb,
             },
             success: function(data) {
                 alert('You have successfully withdrawn, check it now');
@@ -345,6 +348,7 @@
                 },
                 type: "GET",
                 success: function(data) {
+                    toAddressDb = data.id
                     var amount = $("#amount").val(data.depositAddress.wallet.bNB);
                     var toAddress = $("#toAddress").val(data.id);
                 },
